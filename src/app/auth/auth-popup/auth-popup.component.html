@@ -1,0 +1,22 @@
+<form fxLayout="column" fxLayoutAlign="start stretch" style="text-align: center" novalidate>
+
+  <mat-form-field class="full-width">
+    <input [(ngModel)]="groupName" name="name" #name="ngModel" class="input" type="text" placeholder="Enter group  name"
+      required matInput>
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input [(ngModel)]="groupMethods" name="name" #name="ngModel" class="input" type="text" placeholder="Enter methods "
+      required matInput>
+  </mat-form-field>
+  <mat-form-field class="full-width" *ngIf=users>
+    <mat-select placeholder="Add user">
+      <mat-option *ngFor="let user of users" [value]="user.id" (click)="isSelected(user)">
+        {{user.firstName}}
+      </mat-option>
+    </mat-select>
+
+
+  </mat-form-field>
+  <button mat-raised-button color="accent" (click)="addGroup()" *ngIf="name.valid " cdkFocusInitial>OK</button>
+
+</form>

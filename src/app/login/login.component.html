@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+</mat-toolbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center" cellspacing="0">
+      <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit(form.value)" novalidate>
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <input formControlName="email" id="email" type="email" placeholder="Enter email" required
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required matInput />
+          </mat-form-field>
+          <mat-error *ngIf="email && email.invalid && (email.dirty || email.touched)" align="center" style="color: red;"
+            class="mat-body-1 center-align">
+            Enter valid email
+          </mat-error>
+
+        </div>
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <input formControlName="password" [type]="hide ? 'password' : 'text'" id="password" class="form-control"
+              placeholder="Write a password" required matInput />
+            <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+          <mat-error align="center" *ngIf="!formErrors" class="form__error">
+            Email or Password is incorrect
+          </mat-error>
+        </div>
+        <button mat-raised-button color="accent" type="submit" [disabled]="!form.valid">
+          Login
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>
