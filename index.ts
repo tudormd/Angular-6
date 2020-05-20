@@ -2,4 +2,4 @@ console.log("First commit");
 console.log("Second commit");
 console.log("Third commit");
 console.log("Fourth commit");
-console.log("Fiveth commit");
+console.log("Fifth commit");
